@@ -18,9 +18,9 @@ Asignatura: Programación de Aplicaciones de Escritorio, Unidad II (UAM). Docent
 | Integrante | Usuario GitHub | Responsabilidad |
 |------------|----------------|-----------------|
 | Jesy González | [@Jesy05](https://github.com/Jesy05) | Estructura del proyecto, script SQL, conexión JDBC centralizada, modelos, ventana principal |
-| Gabriela _APELLIDOS_ | @USUARIO_GABRIELA | CRUD de clientes: `ClienteDAO`, formulario, TableView y búsqueda |
-| Fabiola _APELLIDOS_ | @USUARIO_FABIOLA | CRUD de citas: `CitaTecnicaDAO`, formulario, TableView, ComboBox de clientes y filtros |
-| José Cristo _APELLIDOS_ | @USUARIO_JOSE | Validaciones, alertas, pruebas unitarias, README y documentación de pruebas |
+| Gabriela _APELLIDOS_ | @gabi122007 |  Validaciones, alertas, pruebas unitarias, README y documentación de pruebas|
+| Fabiola _APELLIDOS_ | @FB1820| CRUD de citas: `CitaTecnicaDAO`, formulario, TableView, ComboBox de clientes y filtros |
+| José Cristo _APELLIDOS_ | @JoseCristoCarvalloHerrera | CRUD de clientes: `ClienteDAO`, formulario, TableView y búsqueda  |
  
 ## Requisitos
  
@@ -99,10 +99,3 @@ Todas las sentencias con valores del usuario usan `PreparedStatement`.
  
 Ver [docs/PRUEBAS_ACEPTACION.md](docs/PRUEBAS_ACEPTACION.md).
  
-## Capturas
- 
-Agregar las capturas en `docs/capturas/` y enlazarlas aquí:
- 
-- Clientes: _pendiente_
-- Citas: _pendiente_
-- Eliminación restringida: _pendiente_
