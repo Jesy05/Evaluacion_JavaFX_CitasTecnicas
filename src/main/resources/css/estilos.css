@@ -1,0 +1,5 @@
+.root { -fx-font-size: 13px; }
+.titulo { -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1f3a5f; }
+.subtitulo { -fx-font-size: 15px; -fx-font-weight: bold; }
+.btn-primario { -fx-background-color: #2e6fd1; -fx-text-fill: white; }
+.btn-peligro { -fx-background-color: #c0392b; -fx-text-fill: white; }
