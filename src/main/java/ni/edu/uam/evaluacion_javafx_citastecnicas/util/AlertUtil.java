@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @NoArgsConstructor
-public final class AlertaUtil {
+public final class AlertUtil {
     public static void exito(String mensaje) {
         mostrar(Alert.AlertType.INFORMATION, "Operación exitosa", mensaje);
     }
