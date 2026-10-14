@@ -25,7 +25,7 @@ public class MainApplication extends Application {
         stage.show();
     }
 
-    /** RF01: informa al usuario si no hay conexión, en lugar de fallar en silencio. */
+
     private void verificarConexion() {
         try {
             ConexionDB.probarConexion();
