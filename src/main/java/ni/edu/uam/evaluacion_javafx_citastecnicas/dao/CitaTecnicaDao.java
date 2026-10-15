@@ -74,6 +74,17 @@ public class CitaTecnicaDao {
         }
     }
 
+    public void actualizarEstado(int id, String estado) throws SQLException {
+        String sql = "UPDATE cita_tecnica SET estado = ? WHERE id = ?";
+        try (Connection conexion = ConexionDB.getConexion();
+             PreparedStatement sentencia = conexion.prepareStatement(sql)) {
+            sentencia.setString(1, estado);
+            sentencia.setInt(2, id);
+            sentencia.executeUpdate();
+        }
+    }
+
+
     public void actualizar(CitaTecnica cita) throws SQLException {
         String sql = "UPDATE cita_tecnica SET cliente_id = ?, fecha = ?, hora = ?, tipo_servicio = ?, "
                 + "descripcion = ?, estado = ? WHERE id = ?";
@@ -84,6 +95,7 @@ public class CitaTecnicaDao {
             sentencia.executeUpdate();
         }
     }
+
 
     public void eliminar(int id) throws SQLException {
         String sql = "DELETE FROM cita_tecnica WHERE id = ?";
