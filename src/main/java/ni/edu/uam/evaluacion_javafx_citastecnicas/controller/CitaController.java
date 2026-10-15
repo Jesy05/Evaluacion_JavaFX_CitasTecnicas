@@ -3,17 +3,14 @@ package ni.edu.uam.evaluacion_javafx_citastecnicas.controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ni.edu.uam.evaluacion_javafx_citastecnicas.dao.CitaTecnicaDao;
 import ni.edu.uam.evaluacion_javafx_citastecnicas.model.CitaTecnica;
 import ni.edu.uam.evaluacion_javafx_citastecnicas.model.Cliente;
 import ni.edu.uam.evaluacion_javafx_citastecnicas.util.AlertUtil;
 import ni.edu.uam.evaluacion_javafx_citastecnicas.util.Validador;
+import javafx.collections.ListChangeListener;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -32,6 +29,8 @@ public class CitaController {
 
     @FXML private ComboBox<String> cmbFiltroEstado;
     @FXML private DatePicker dpFiltroFecha;
+    @FXML private Label lblTotal;
+
 
     @FXML private TableView<CitaTecnica> tblCitas;
     @FXML private TableColumn<CitaTecnica, Integer> colId;
@@ -53,6 +52,13 @@ public class CitaController {
         colServicio.setCellValueFactory(new PropertyValueFactory<>("tipoServicio"));
         colEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
         tblCitas.setItems(citas);
+
+        // Muestra cuántas citas hay en la tabla con los filtros actuales.
+        lblTotal.setText("Total: 0 cita(s)");
+        citas.addListener((ListChangeListener<CitaTecnica>) cambio ->
+                lblTotal.setText("Total: " + citas.size() + " cita(s)"));
+
+
 
         cmbEstado.getItems().setAll(CitaTecnica.ESTADOS);
         cmbEstado.setValue("Pendiente");
@@ -116,6 +122,7 @@ public class CitaController {
         }
     }
 
+
     @FXML
     private void onEliminar() {
         CitaTecnica seleccionada = tblCitas.getSelectionModel().getSelectedItem();
@@ -135,6 +142,27 @@ public class CitaController {
             aplicarFiltros();
         } catch (SQLException e) {
             AlertUtil.errorSql("eliminar la cita", e);
+        }
+    }
+    /** Cambia el estado de la cita seleccionada a Finalizada sin editar todo el formulario. */
+    @FXML
+    private void onMarcarFinalizada() {
+        CitaTecnica seleccionada = tblCitas.getSelectionModel().getSelectedItem();
+        if (seleccionada == null) {
+            AlertUtil.advertencia("Sin selección", "Seleccione una cita de la tabla para marcarla como finalizada.");
+            return;
+        }
+        if ("Finalizada".equals(seleccionada.getEstado())) {
+            AlertUtil.informacion("Sin cambios", "La cita #" + seleccionada.getId() + " ya está finalizada.");
+            return;
+        }
+        try {
+            citaDAO.actualizarEstado(seleccionada.getId(), "Finalizada");
+            AlertUtil.exito("La cita #" + seleccionada.getId() + " fue marcada como finalizada.");
+            limpiarFormulario();
+            aplicarFiltros();
+        } catch (SQLException e) {
+            AlertUtil.errorSql("actualizar el estado de la cita", e);
         }
     }
 

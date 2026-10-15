@@ -53,6 +53,9 @@
         <Button text="Eliminar" onAction="#onEliminar" styleClass="btn-peligro"/>
         <Button text="Limpiar" onAction="#onLimpiar"/>
         <Button text="Recargar" onAction="#onRecargar"/>
+        <Button text="Marcar finalizada" onAction="#onMarcarFinalizada"/>
+
+
     </HBox>
 
     <HBox spacing="8.0">
@@ -77,4 +80,5 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
         </columnResizePolicy>
     </TableView>
+    <Label fx:id="lblTotal"/>
 </VBox>
