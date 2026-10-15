@@ -70,4 +70,5 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
         </columnResizePolicy>
     </TableView>
+    <Label fx:id="lblTotal"/>
 </VBox>

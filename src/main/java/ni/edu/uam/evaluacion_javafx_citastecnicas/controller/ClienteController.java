@@ -1,12 +1,10 @@
 package ni.edu.uam.evaluacion_javafx_citastecnicas.controller;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ni.edu.uam.evaluacion_javafx_citastecnicas.dao.ClienteDAO;
 import ni.edu.uam.evaluacion_javafx_citastecnicas.model.Cliente;
@@ -16,7 +14,7 @@ import ni.edu.uam.evaluacion_javafx_citastecnicas.util.Validador;
 import java.sql.SQLException;
 import java.util.List;
 
-/** RF02, RF05, RF07, RF08, RF09 para el módulo de clientes. */
+
 public class ClienteController {
 
     @FXML private TextField txtNombres;
@@ -25,7 +23,7 @@ public class ClienteController {
     @FXML private TextField txtCorreo;
     @FXML private CheckBox chkActivo;
     @FXML private TextField txtBuscar;
-
+    @FXML private Label lblTotal;
     @FXML private TableView<Cliente> tblClientes;
     @FXML private TableColumn<Cliente, Integer> colId;
     @FXML private TableColumn<Cliente, String> colNombres;
@@ -46,6 +44,12 @@ public class ClienteController {
         colCorreo.setCellValueFactory(new PropertyValueFactory<>("correo"));
         colActivo.setCellValueFactory(new PropertyValueFactory<>("activo"));
         tblClientes.setItems(clientes);
+
+
+        lblTotal.setText("Total: 0 cliente(s)");
+        clientes.addListener((ListChangeListener<Cliente>) cambio ->
+                lblTotal.setText("Total: " + clientes.size() + " cliente(s)"));
+
 
         // Al seleccionar una fila, sus datos pasan al formulario.
         tblClientes.getSelectionModel().selectedItemProperty().addListener((obs, anterior, seleccionado) -> {
