@@ -4,8 +4,8 @@ Aplicación de escritorio desarrollada para la asignatura **Programación de Apl
 Sistema de gestión de citas de atención técnica para **TecnoAsistencia Nicaragua S.A.**
 Aplicación de escritorio JavaFX conectada a PostgreSQL mediante JDBC (sin ORM).
 
-[![Repo GitHub](https://img.shields.io/badge/GitHub-AplicacionRegistro-blue?style=flat&logo=github)](https://github.com/Jesy05/AplicacionRegistro)
-[![JavaFX](https://img.shields.io/badge/JavaFX-17%2B-orange?style=flat&logo=java)](https://openjfx.io/)
+[![Repo GitHub](https://img.shields.io/badge/GitHub-Evaluacion__JavaFX__CitasTecnicas-blue?style=flat&logo=github)](https://github.com/Jesy05/Evaluacion_JavaFX_CitasTecnicas)
+[![JavaFX](https://img.shields.io/badge/JavaFX-21-orange?style=flat&logo=java)](https://openjfx.io/)
 [![IDE](https://img.shields.io/badge/IDE-IntelliJ%20IDEA-purple?style=flat&logo=intellijidea)](https://www.jetbrains.com/idea/)
 
 ---
@@ -18,9 +18,9 @@ Asignatura: Programación de Aplicaciones de Escritorio, Unidad II (UAM). Docent
 | Integrante | Usuario GitHub | Responsabilidad |
 |------------|----------------|-----------------|
 | Jesy González | [@Jesy05](https://github.com/Jesy05) | Estructura del proyecto, script SQL, conexión JDBC centralizada, modelos, ventana principal |
-| Gabriela _APELLIDOS_ | @gabi122007 |  Validaciones, alertas, pruebas unitarias, README y documentación de pruebas|
-| Fabiola _APELLIDOS_ | @FB1820| CRUD de citas: `CitaTecnicaDAO`, formulario, TableView, ComboBox de clientes y filtros |
-| José Cristo _APELLIDOS_ | @JoseCristoCarvalloHerrera | CRUD de clientes: `ClienteDAO`, formulario, TableView y búsqueda  |
+| Gabriela Espinoza | @gabi122007 |  Validaciones, alertas, pruebas unitarias, README y documentación de pruebas|
+| Fabiola Saraí Lanuza Paz | @FB1820| CRUD de citas: `CitaTecnicaDao`, formulario, TableView, ComboBox de clientes y filtros |
+| José Cristo Carvallo Herrera | @JoseCristoCarvalloHerrera | CRUD de clientes: `ClienteDAO`, formulario, TableView y búsqueda  |
  
 ## Requisitos
  
@@ -61,9 +61,9 @@ Estados permitidos de la cita: Pendiente, En proceso, Finalizada, Cancelada.
  
 ```
 ni.edu.uam.evaluacion_javafx_citastecnicas
-├── db          ConexionDB (conexión JDBC centralizada)
+├── (raíz)      ConexionDB (conexión JDBC centralizada), Launcher, MainApplication
 ├── model       Cliente, CitaTecnica
-├── dao         ClienteDAO, CitaTecnicaDAO (SQL con PreparedStatement)
+├── dao         ClienteDAO, CitaTecnicaDao (SQL con PreparedStatement)
 ├── controller  MainController, ClienteController, CitaController
 └── util        Validador, AlertUtil
 resources/view  main-view.fxml, cliente-view.fxml, cita-view.fxml
@@ -87,9 +87,9 @@ Todas las sentencias con valores del usuario usan `PreparedStatement`.
 |--------|-----------------|
 | RF01 | `ConexionDB`, aviso de error en `MainApplication` |
 | RF02 | `ClienteController` + `cliente-view.fxml` + `ClienteDAO` |
-| RF03, RF04 | `CitaController` + `cita-view.fxml` + `CitaTecnicaDAO` |
+| RF03, RF04 | `CitaController` + `cita-view.fxml` + `CitaTecnicaDao` |
 | RF05 | `ClienteDAO.buscar` |
-| RF06 | `CitaTecnicaDAO.filtrar` |
+| RF06 | `CitaTecnicaDao.filtrar` |
 | RF07 | `Validador` + comprobaciones en los DAO |
 | RF08 | `AlertUtil` y confirmaciones en los controladores |
 | RF09 | Recarga del TableView tras cada operación |
@@ -98,4 +98,9 @@ Todas las sentencias con valores del usuario usan `PreparedStatement`.
 ## Pruebas de aceptación
  
 Ver [docs/PRUEBAS_ACEPTACION.md](docs/PRUEBAS_ACEPTACION.md).
+
+## Documentación adicional
+
+- [Guía para la defensa](docs/GUIA_DEFENSA.md)
+- [Cronograma real y responsabilidades](docs/CRONOGRAMA_REAL.md)
  
