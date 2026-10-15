@@ -1,4 +1,4 @@
-package ni.edu.uam.evaluacion_javafx_citastecnicas.db;
+package ni.edu.uam.evaluacion_javafx_citastecnicas;
 
 import java.io.IOException;
 import java.io.InputStream;
