@@ -7,6 +7,7 @@ import ni.edu.uam.evaluacion_javafx_citastecnicas.model.Cliente;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
 import java.util.regex.Pattern;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.List;
 public final class Validador {
     private static final Pattern CORREO = Pattern.compile("^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*\\.[A-Za-z]{2,}$");
     private static final Pattern TELEFONO = Pattern.compile("^[0-9+\\-\\s()]{7,20}$");
-    private static final DateTimeFormatter FORMATO_HORA = DateTimeFormatter.ofPattern("H:mm");
+    private static final DateTimeFormatter FORMATO_HORA = DateTimeFormatter.ofPattern("H:mm").withResolverStyle(ResolverStyle.STRICT);
 
     public static List<String> validarCliente(Cliente cliente) {
         List<String> problemas = new ArrayList<>();
