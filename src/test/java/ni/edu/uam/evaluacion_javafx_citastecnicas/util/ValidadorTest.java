@@ -2,12 +2,12 @@ package ni.edu.uam.evaluacion_javafx_citastecnicas.util;
 
 import ni.edu.uam.evaluacion_javafx_citastecnicas.model.CitaTecnica;
 import ni.edu.uam.evaluacion_javafx_citastecnicas.model.Cliente;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import static org.testng.AssertJUnit.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class ValidadorTest {
