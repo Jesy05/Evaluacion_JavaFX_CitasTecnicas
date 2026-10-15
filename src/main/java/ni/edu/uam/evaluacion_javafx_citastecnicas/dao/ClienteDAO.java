@@ -1,6 +1,6 @@
 package ni.edu.uam.evaluacion_javafx_citastecnicas.dao;
 
-import ni.edu.uam.evaluacion_javafx_citastecnicas.db.ConexionDB;
+import ni.edu.uam.evaluacion_javafx_citastecnicas.ConexionDB;
 import ni.edu.uam.evaluacion_javafx_citastecnicas.model.Cliente;
 
 import java.sql.Connection;

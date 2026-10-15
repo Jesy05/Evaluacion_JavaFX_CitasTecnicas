@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-import ni.edu.uam.evaluacion_javafx_citastecnicas.db.ConexionDB;
 
 import java.io.IOException;
 import java.sql.SQLException;
